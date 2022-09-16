@@ -49,7 +49,7 @@ function draw() {
 
 function updateText() {
   legCount = countLegs(chickenInput.value(), cowInput.value(), pigInput.value());
-  console.log(finalText);
+  console.log(legCount);
   if (legCount === 0) {
     finalText = `there are no legs`;
     return finalText
