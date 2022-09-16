@@ -73,4 +73,3 @@ function countLegs(inChickens, inCows, inPigs) {
   let outLegs = inChickens * 2 + inCows * 4 + inPigs * 4;
   return outLegs
 }
-e
