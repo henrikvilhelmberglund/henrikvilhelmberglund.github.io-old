@@ -36,7 +36,7 @@ function draw() {
     text("chicken count", 10, 30);
     text("cow count", 10, 80);
     text("pig count", 10, 130);
-    textSize(40);
+    textSize(20);
     fill(0, 0, 100); //changes the color of all shapes (and text) until next fill command
     text(finalText, 20, 300);
   }
@@ -50,8 +50,23 @@ function draw() {
 function updateText() {
   legCount = countLegs(chickenInput.value(), cowInput.value(), pigInput.value());
   console.log(finalText);
-  finalText = `there are in total ${legCount} legs`;
-  return finalText
+  if (legCount === 0) {
+    finalText = `there are no legs`;
+    return finalText
+  }
+  else if (chickenInput.value() < 0 || cowInput.value() < 0 || pigInput.value() < 0) {
+    finalText = `you can't have a negative animal you silly goose!`;
+    return finalText
+  }
+  else if (isNaN(chickenInput.value()) || isNaN(cowInput.value()) || isNaN(pigInput.value())) {
+    finalText = `please enter a valid number`;
+    return finalText
+  }
+  else {
+    finalText = `there are in total ${legCount} legs`;
+    return finalText
+  }
+  
 }
 
 function countLegs(inChickens, inCows, inPigs) {
